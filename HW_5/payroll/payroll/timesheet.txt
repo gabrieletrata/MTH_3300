@@ -1,0 +1,5 @@
+John Adams 30 55 10.00
+Lyndon Johnson 45 25 8.50
+Richard Nixon 30 30 15.20
+Gerald Ford 50 50 12.00
+Jimmy Carter 2 3 4.00

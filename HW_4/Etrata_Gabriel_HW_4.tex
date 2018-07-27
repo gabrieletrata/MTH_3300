@@ -1,0 +1,472 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{letterpaper, margin=1in}
+\usepackage{setspace}
+%\doublespacing
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage[yyyymmdd,hhmmss]{datetime}
+
+% Solarized colour scheme for listings
+\definecolor{solarized@base03}{HTML}{002B36}
+\definecolor{solarized@base02}{HTML}{073642}
+\definecolor{solarized@base01}{HTML}{586e75}
+\definecolor{solarized@base00}{HTML}{657b83}
+\definecolor{solarized@base0}{HTML}{839496}
+\definecolor{solarized@base1}{HTML}{93a1a1}
+\definecolor{solarized@base2}{HTML}{EEE8D5}
+\definecolor{solarized@base3}{HTML}{FDF6E3}
+\definecolor{solarized@yellow}{HTML}{B58900}
+\definecolor{solarized@orange}{HTML}{CB4B16}
+\definecolor{solarized@red}{HTML}{DC322F}
+\definecolor{solarized@magenta}{HTML}{D33682}
+\definecolor{solarized@violet}{HTML}{6C71C4}
+\definecolor{solarized@blue}{HTML}{268BD2}
+\definecolor{solarized@cyan}{HTML}{2AA198}
+\definecolor{solarized@green}{HTML}{859900}
+
+% Define C++ syntax highlighting colour scheme
+\lstset{language=C++,
+	basicstyle=\footnotesize\ttfamily,
+	numbers=left,
+	numberstyle=\footnotesize,
+	tabsize=2,
+	breaklines=true,
+	escapeinside={@}{@},
+	numberstyle=\tiny\color{solarized@base01},
+	keywordstyle=\color{solarized@green},
+	stringstyle=\color{solarized@cyan}\ttfamily,
+	identifierstyle=\color{solarized@blue},
+	commentstyle=\color{solarized@base01},
+	emphstyle=\color{solarized@red},
+	frame=single,
+	rulecolor=\color{solarized@base2},
+	rulesepcolor=\color{solarized@base2},
+	showstringspaces=false
+}
+
+\begin{document}
+\raggedright{Gabriel Etrata} \hfill \raggedleft{Last Modified on \today\ at \currenttime}\\
+\raggedright{MTH 3300}\\%class
+\raggedright{Spring 2017}\\
+\raggedright{Professor Evan Fink}\\
+\textit{Homework 4} \\%topic
+\hrulefill\\
+\setlength\parindent{24pt} 
+
+\begin{enumerate}
+	\item \begin{lstlisting}
+			#include <iostream>
+			#include <stdlib.h>
+			#include <fstream>
+			
+			using namespace std;
+			
+			int main(){
+				int a, b, c;
+			
+				ifstream dataFile;
+				dataFile.open("data.txt");
+			
+				dataFile >> a;
+				dataFile >> b;
+				dataFile >> c;
+			
+				dataFile.close();
+				
+				return 0;
+			}
+			\end{lstlisting}
+			
+	\item \begin{lstlisting}
+			#include <iostream>
+			#include <stdlib.h>
+			#include <fstream>
+			
+			using namespace std;
+			
+			int main(){
+				string firstWord; secondWord;
+			
+				ifstream text;
+				text.open("mozart.txt");
+			
+				fileIn >> firstWord;
+				fileIn >> secondWord;
+				
+				cout << secondWord << endl;
+			
+				text.close();
+			
+				return 0;	
+			}
+			\end{lstlisting}
+			
+	\item \begin{lstlisting}
+			#include <iostream>
+			#include <stdlib.h>
+			#include <fstream>
+			#include <iomanip>
+			
+			using namespace std;
+			
+			int main(){
+				int a;
+			
+				ifstream numText;
+				numText.open("numbers.txt");
+			
+				fileIn >> a;
+			
+				ofstream digit;
+				digit.open("three.txt");
+				digit << setprecision(3) << fixed << a << endl;
+				digit.close();
+			
+				return 0;	
+			}
+			\end{lstlisting}
+			
+	\item\begin{lstlisting}
+			#include <iostream>
+			#include <stdlib.h>
+			#include <fstream>
+			
+			using namespace std;
+			
+			int main(){
+				int a, b, c;
+				
+				ifstream thatWay;
+				thatWay.open("forward.txt");
+				
+				fileIn >> a;
+				fileIn >> b;
+				fileIn >> c;
+				
+				ofstream thisWay;
+				thisWay.open("backward.txt");
+				
+				thisWay << c << b << a << endl;
+				
+				thatWay.close();
+				thisWay.close();
+				
+				return 0;	
+			}
+			\end{lstlisting}
+		
+	\item \begin{lstlisting}
+			#include <iostream>
+			#include <stdlib.h>
+			#include <fstream>
+			
+			using namespace std;
+			
+			int main(){
+				int a, b, c;
+			
+				ifstream nums;
+				nums.open("numbers.txt");
+			
+				cin >> a;
+				cin >> b;
+				cin >> c;
+
+				nums << a + b + c << endl;
+			
+				nums.close();
+
+				return 0;	
+			}
+			\end{lstlisting}
+	
+	\item \begin{lstlisting}
+			#include <iostream>
+			#include <stdlib.h>
+			#include <fstream>
+			
+			using namespace std;
+			
+			int main(){
+				int a;
+			
+				ifstream nums;
+				nums.open("numbers.txt");
+			
+				fileIn >> a;
+			
+				cout << a + 1 << endl;
+			
+				nums.close();
+				
+				return 0;
+			}
+			\end{lstlisting}
+			
+	\item \begin{lstlisting}
+			#include <iostream>
+			#include <stdlib.h>
+			#include <fstream>
+			
+			using namespace std;
+			
+			int main(){
+				int a, b, c;
+			
+				ifstream nums;
+				nums.open("numbers.txt");
+			
+				fileIn >> a;
+				fileIn >> b;
+				fileIn >> c;
+			
+				cout << a + b + c << endl;
+			
+				nums.close();
+			
+				return 0;	
+			}
+			\end{lstlisting}
+			
+	\item \begin{lstlisting}
+		#include <iostream>
+		#include <stdlib.h>
+		#include <fstream>
+	
+		using namespace std;
+	
+		int main(){
+			string hi = Hello;
+			ofstream hello;
+			hello.open("text.txt");
+		
+			hello << hi << endl;
+		
+			hello.close();
+		
+			return 0;
+		}
+			\end{lstlisting}
+	
+	\item \begin{lstlisting}
+		#include <iostream>
+		#include <stdlib.h>
+		#include <fstream>
+		
+		using namespace std;
+		
+		int main(){
+			char a, b c;
+		
+			instream bunchOfChars;
+			bunchOfChars.open("in.txt");
+		
+			fileIn >> a;
+			fileIn >> b;
+			fileIn >> c;
+		
+			ofstream firstAndLast;
+			firstAndLast.open("out.txt");
+			firstAndLast << a << b << c << endl;
+		
+			bunchOfChars.close();
+			firstAndLast.close();
+		
+			return 0;
+		}
+			\end{lstlisting}
+			
+	\item \begin{lstlisting}
+		#include <iostream>
+		#include <stdlib.h>
+		#include <fstream>
+		
+		using namespace std;
+			int main(){
+			double p;
+		
+			ofstream price;
+			price.open("price.txt");
+		
+			price <<  setprecision(2) << fixed << p << endl;
+			
+			return 0; 
+		}
+			\end{lstlisting}
+	
+	\item \begin{lstlisting}
+		#include <iostream>
+		#include <stdlib.h>
+
+		using namespace std;
+		int main(){
+			int mystery;
+			srand(time(0));
+			mystery = rand() %4;
+		
+			if ()mystery % 4 == 1){
+				cout << "Red" << endl;
+			} else if (mystery % 4 == 2){
+			cout << "Green" << endl;
+			} else if (mystery % 4 == 3){
+				cout << "Blue" << endl;
+			}
+			
+			return 0;
+		}
+			\end{lstlisting}
+			
+	\item \begin{lstlisting}
+		#include <iostream>
+		#include <stdlib.h>
+		
+		using namespace std;
+		int main(){
+			int mystery;
+			srand(time(0));
+			mystery = rand() % 11;
+		
+			if(mystery == 1 || mystery == 2){
+				cout << "Bad day" << endl;
+			} else { 
+				cout << "Good day" << endl;
+			}
+		
+			return 0;
+		}
+			\end{lstlisting}
+	
+	\item \begin{lstlisting}
+		#include <iostream>
+		#include <stdlib.h>
+	
+		using namespace std;
+		int main(){
+			int mystery;
+		
+			srand(time()NULL));
+			mystery = rand() % 101;
+		
+			if (mystery < 31){
+				cout <<  "precipitation" << endl;
+			} else {
+				cout << "sun" << endl;
+			}
+		
+			return 0;
+		}
+			\end{lstlisting}
+			
+	\item \begin{lstlisting}
+		#include <iostream>
+		#include <stdlib.h>
+		#include <cmath>
+		
+		using namespace std;
+		
+		double Pythagorean(int a, int b){
+			double c = sqrt(pow(a, 2) + pow(b, 2));
+		
+		return c;
+		}
+		
+		int main(){
+			int a, b;
+			srand(time(NULL));
+			a = rand() % 10 + 1;
+			b = rand() % 10 + 1;
+		
+			if(Pythagorean(a, b)) > 10){
+				cout << "Long" << endl;
+			}
+		
+			return 0;
+		}
+			\end{lstlisting}
+			
+	\item \begin{lstlisting}
+		#include <iostream>
+		#include <stdlib.h>
+	
+		using namespace std;
+		int main(){
+			srand(time(NULL));
+			int a = rand() % 11;
+			int b = rand() % 11;
+		
+			if( (a + b) % 2 == 0){
+				cout << "Go to jail." << endl;
+		
+			}
+			
+			return 0;
+		}
+			\end{lstlisting}
+	
+	\item \begin{lstlisting}
+		#include <iostream>
+		#include <stdlib.h>
+		#include <fstream>
+		
+		using namespace std;
+		
+		int main(){
+			string a, b, c;
+			int mystery;
+			
+			srand(time(0));
+			mystery = rand() % 101;
+			
+			instream food;
+			food.open("hello.txt");
+		
+			fileIn >> a;
+			fileIn >> b;
+			fileIn >> c;
+		
+			if (mystery > 66){
+				cout << a; << endl;
+			}
+				else if (mystery <= 66 && mystery > 33){
+				cout << b; << endl;
+			}
+				else if (mystery <= 33 && myster >= 0){
+				cout << c; << endl;
+			}
+		
+			return 0;
+		}
+			\end{lstlisting}
+			
+	\item \begin{lstlisting}
+		#include <iostream>
+		#include <stdlib.h>
+		#include <fstream>
+		#include <string>
+		
+		using namespace std;
+		int main(){
+			string a, b, c, d;
+			
+			instream short;
+			short.open("short.txt");
+			
+			fileIn a;
+			fileIn b;
+			fileIn c;
+			fileIn d;
+			
+			if(a.length() == 6 && b.length() == 6 && c.length() == 6  && d.length() == 6){
+				cout << "Not short" << endl;
+			} else {
+				cout <<< "Short" << endl;
+			}
+			
+			return 0;
+		}
+			\end{lstlisting}
+\end{enumerate}
+\end{document}

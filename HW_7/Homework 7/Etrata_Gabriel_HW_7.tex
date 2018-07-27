@@ -1,0 +1,268 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{letterpaper, margin=1in}
+\usepackage{setspace}
+%\doublespacing
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage[yyyymmdd,hhmmss]{datetime}
+
+% Solarized colour scheme for listings
+\definecolor{solarized@base03}{HTML}{002B36}
+\definecolor{solarized@base02}{HTML}{073642}
+\definecolor{solarized@base01}{HTML}{586e75}
+\definecolor{solarized@base00}{HTML}{657b83}
+\definecolor{solarized@base0}{HTML}{839496}
+\definecolor{solarized@base1}{HTML}{93a1a1}
+\definecolor{solarized@base2}{HTML}{EEE8D5}
+\definecolor{solarized@base3}{HTML}{FDF6E3}
+\definecolor{solarized@yellow}{HTML}{B58900}
+\definecolor{solarized@orange}{HTML}{CB4B16}
+\definecolor{solarized@red}{HTML}{DC322F}
+\definecolor{solarized@magenta}{HTML}{D33682}
+\definecolor{solarized@violet}{HTML}{6C71C4}
+\definecolor{solarized@blue}{HTML}{268BD2}
+\definecolor{solarized@cyan}{HTML}{2AA198}
+\definecolor{solarized@green}{HTML}{859900}
+
+% Define C++ syntax highlighting colour scheme
+\lstset{language=C++,
+	basicstyle=\footnotesize\ttfamily,
+	numbers=left,
+	numberstyle=\footnotesize,
+	tabsize=2,
+	breaklines=true,
+	escapeinside={@}{@},
+	numberstyle=\tiny\color{solarized@base01},
+	keywordstyle=\color{solarized@green},
+	stringstyle=\color{solarized@cyan}\ttfamily,
+	identifierstyle=\color{solarized@blue},
+	commentstyle=\color{solarized@base01},
+	emphstyle=\color{solarized@red},
+	frame=single,
+	rulecolor=\color{solarized@base2},
+	rulesepcolor=\color{solarized@base2},
+	showstringspaces=false
+}
+
+\begin{document}
+\raggedright{Gabriel Etrata} \hfill \raggedleft{Last Modified on \today\ at \currenttime}\\
+\raggedright{MTH 3300}\\%class
+\raggedright{Spring 2017}\\
+\raggedright{Professor Evan Fink}\\
+\textit{Homework 7} \\%topic
+\hrulefill\\
+\setlength\parindent{24pt} 
+
+Section 5, Problem 18
+\begin{lstlisting}
+	#include <iostream>
+	#include <stdlib.h>
+			
+	using namespace std;
+			
+	int main(){
+			
+			for(int i = 0; i < 1000; i++){
+				if (i % 3 == 0){
+				cout << "Buzz" << endl;
+				} else if (i % 5 == 0){
+				cout << "Fizz" << endl;
+				} else if (i % 3 == 0 && i % 5 == 0){
+				cout << "FizzBuzz" << endl;
+				} else {
+				cout << i << endl;
+				}
+			}
+			
+			return 0;
+			}
+\end{lstlisting}
+			
+Section 5, Problem 25
+\begin{lstlisting}
+	#include <iostream>
+	#include <stdlib.h>
+
+	using namespace std;
+
+	int main(){
+	
+	bool success = false;
+	int entry;
+	
+	while( !sucess ){
+		cout << "Enter an integer "Enter an integer (but if it's not between 1 and 100, I'll just ask again): ";
+		cin >> entry;
+			
+			if(entry > 1 && entry < 100){
+			sucess = true;
+			}	
+			
+	return 0;
+	}
+\end{lstlisting}
+
+Section 5, Problem 29
+\begin{lstlisting}
+	#include <iostream>
+	#include <stdlib.h>
+
+	using namespace std;
+	
+	int main(){
+	
+	int x = 1;
+	while(x < 5){
+
+		for(int i = 1; i <= x; i++){
+			cout << i;
+			x+=i;
+			break;
+		}
+		cout << ",";
+		}
+		return 0;
+	} //prints out: 1, 1, 1, 1,
+\end{lstlisting}
+
+Section 5, Longer Problems 3
+\begin{lstlisting}
+	#include <iostream>
+	#include <stdlib.h>
+
+	using namespace std;
+
+	int main(){
+		int nums [9]; //array that holds 10 integers
+		cout << "Input 10 integers (separated by spaces, then press Enter): ";
+		for(int i = 0; i < 10; i++){
+			cin >> nums[i];
+		}
+
+		for(int j = 1; j < 10; j++){ //bubble sort algorithm
+			for(int k = 0; k < 9; k++){
+				if(nums[k] > nums[k+1]){
+					int temp;
+					temp = nums[k];
+					nums[k] = nums[k+1];
+					nums[k+1] = temp;
+				}
+			}
+		}
+
+		for(int i = 9; i >+ 0; i--){ //returns the largest integer less than 100
+			if(nums[i] < 100 && nums[i] > nums[i-1]){
+				cout << "The largest number less than 100 is: " << nums[i] << " ";
+				break;
+			}
+		}
+
+		return 0;
+	}
+\end{lstlisting}
+
+Section 6, Problem 14
+\begin{lstlisting}
+	int blah(int &a, int b){
+		a++;
+		b++;
+		return a+b;
+	}
+	int main(){
+		int a = 2, b = 5, c;
+		c = blah(a,b);
+		cout << a << endl;
+		cout << b << endl;
+		cout << c << endl;
+		return 0;
+	}	//prints out:
+		//3
+		//5
+		//9
+\end{lstlisting}
+
+Section 6, Problem 18
+\begin{lstlisting}
+	void replaceMax(int a, int b){
+		if(a > b){
+			b = a;
+		} else if (b > a){
+			a = b;
+		} 	
+	}
+\end{lstlisting}
+
+Section 6, Problem 25
+\begin{lstlisting}
+	#include <iostream>
+	
+	using namespace std;
+	
+	int x = 10;
+	int fn(int x){
+
+		int y = 2;
+		x = y;
+		
+		return x+y;
+	}
+
+	int main(){
+
+		cout << x << endl;
+		int x = 5, y = 3;
+		y = fn(::x);
+		cout << x << y << endl;
+		
+		return 0;
+	}//print outs out:
+	 //10
+	 //54
+\end{lstlisting}
+
+Section 6, Longer Problem 2
+\begin{lstlisting}
+//Resources used: http://stackoverflow.com/questions/16029324/c-splitting-a-string-into-an-array
+
+	#include <iostream>
+	#include <stdlib.h>
+	#include <fstream>
+	#include <iomanip>
+	#include <sstream>
+
+	using namespace std;
+
+	void newWord(string s){
+		if(s == "Hillary" || s == "Donald"){
+			s = "***";
+		}
+		cout << s << " ";
+	}
+
+	int main(){
+
+	string line;
+	int num = 10000;
+	string arr[10000]; //an arbitrarily large array (assuming that the largest sentence is 10000 words)
+	string word;
+
+	ifstream file("news.txt");
+	if(file.is_open() ){
+		while(getline (file, line) ){
+			stringstream ssin(line);
+				for(int i = 0; ssin.good() && i < num; i++){ //splits sentence into individual words
+					ssin >> arr[i]; //puts the words in an array, arr
+					newWord(arr[i]); //turns the word into "**", if it's "Hillary" or "Donald"
+				}
+			}
+	}
+	return 0;
+	}
+
+\end{lstlisting}
+		
+
+\end{document}

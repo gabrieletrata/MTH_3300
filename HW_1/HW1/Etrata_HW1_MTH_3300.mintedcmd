@@ -1,0 +1,1 @@
+pygmentize -l csharp -f latex -P commandprefix=PYG -F tokenmerge -P mathescape=True -F gobble:n=2 -o "Etrata_HW1_MTH_3300.out.pyg" "Etrata_HW1_MTH_3300.pyg" 

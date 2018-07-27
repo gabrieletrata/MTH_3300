@@ -1,0 +1,258 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{letterpaper, margin=1in}
+\usepackage{setspace}
+%\doublespacing
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage[yyyymmdd,hhmmss]{datetime}
+
+% Solarized colour scheme for listings
+\definecolor{solarized@base03}{HTML}{002B36}
+\definecolor{solarized@base02}{HTML}{073642}
+\definecolor{solarized@base01}{HTML}{586e75}
+\definecolor{solarized@base00}{HTML}{657b83}
+\definecolor{solarized@base0}{HTML}{839496}
+\definecolor{solarized@base1}{HTML}{93a1a1}
+\definecolor{solarized@base2}{HTML}{EEE8D5}
+\definecolor{solarized@base3}{HTML}{FDF6E3}
+\definecolor{solarized@yellow}{HTML}{B58900}
+\definecolor{solarized@orange}{HTML}{CB4B16}
+\definecolor{solarized@red}{HTML}{DC322F}
+\definecolor{solarized@magenta}{HTML}{D33682}
+\definecolor{solarized@violet}{HTML}{6C71C4}
+\definecolor{solarized@blue}{HTML}{268BD2}
+\definecolor{solarized@cyan}{HTML}{2AA198}
+\definecolor{solarized@green}{HTML}{859900}
+
+% Define C++ syntax highlighting colour scheme
+\lstset{language=C++,
+	basicstyle=\footnotesize\ttfamily,
+	numbers=left,
+	numberstyle=\footnotesize,
+	tabsize=2,
+	breaklines=true,
+	escapeinside={@}{@},
+	numberstyle=\tiny\color{solarized@base01},
+	keywordstyle=\color{solarized@green},
+	stringstyle=\color{solarized@cyan}\ttfamily,
+	identifierstyle=\color{solarized@blue},
+	commentstyle=\color{solarized@base01},
+	emphstyle=\color{solarized@red},
+	frame=single,
+	rulecolor=\color{solarized@base2},
+	rulesepcolor=\color{solarized@base2},
+	showstringspaces=false
+}
+
+\begin{document}
+\raggedright{Gabriel Etrata} \hfill \raggedleft{Last Modified on \today\ at \currenttime}\\
+\raggedright{MTH 3300}\\%class
+\raggedright{Spring 2017}\\
+\raggedright{Professor Evan Fink}\\
+\textit{Homework 1} \\%topic
+\hrulefill\\
+\setlength\parindent{24pt} 
+
+\begin{enumerate}
+	\item Xcode nation
+	\item Coin Algorithm
+		\begin{enumerate}
+			\item Start with the coin of largest value, which does not exceed the price.
+			\item Take the coin and and check if it equals the price. If not, take the difference between the price and value of the coin, and this will be your new price.
+			\item Repeat step (a) and (b) until necessary.
+		\end{enumerate}
+	\item Nearest Subway Entrance Algorithm
+		\begin{enumerate}
+			\item Iterate through each latitude and longitude, on the spreadsheet then apply the distance formula (for speed): 
+
+			\[D = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}\]\\
+
+			on your calculator for each iteration, where 
+				$$D = \mbox{the distance between your location and the nearest subway station}$$
+				$$x_2= \mbox{latitude given}$$
+				$$x_1 = \mbox{iterated latitude}$$
+				$$y_2 = \mbox{longitude given}$$
+				$$y_1 = \mbox{iterated longitude}$$
+			 \item While doing this, neatly make a list and keep track of the station name, latitude, longitude, and distance, respectively. 
+			 \item Determine the shortest distance calculated.
+			 \item Determine which longitude and latitude it corresponds to, then which station those coordinates correspond to. 
+		\end{enumerate}
+	\item C++ Statements
+		
+			\begin{lstlisting}
+			int score = 17;
+			bool sure = false;
+			double length = 12.5;
+			char initial = `f';
+			\end{lstlisting}
+			
+	\break
+	
+   \item Worst Episode Ever
+	
+			\begin{lstlisting}
+			cout << "Worst." << endl << "Episode." << endl << "Ever." << endl;
+			\end{lstlisting}
+	
+	\item Characters
+		\begin{enumerate}
+		
+		\item Newline Character
+		\begin{lstlisting}
+		cout << \n << endl;
+		\end{lstlisting}
+		
+		\item Tab Character
+		\begin{lstlisting}
+		cout << \t << endl;
+		\end{lstlisting}
+		
+		\item Double Quotation Mark
+		\begin{lstlisting}
+		cout << \" << endl;
+		\end{lstlisting}
+		
+		\end{enumerate}
+	
+	\item Formatting
+	
+		\begin{lstlisting}
+		#include <iostream>
+		
+		using namespace std;
+		
+		int main()
+		{
+			int first, second;
+			
+			cout << "Enter two integers" << endl;
+			
+			cin >> first >> second;
+			
+			int sum = first + second;
+			cout << "The sum is" << sum;
+			
+			return 0;
+		}
+		\end{lstlisting}
+		
+		\item Evaluating Expressions
+		\begin{enumerate}
+			\item 20/7 = 2
+			\item 5 - 8/3*2 = 1
+			\item 3.0/4 + 2 = 2
+			\item 56\%10 = 6
+			\item 56\%10*2 = 12
+			\item 5.6\%10*2 = ERROR, will not compile since the modulus operator only uses ints.
+			\item static\_cast\textless double\textgreater(25)/2 = 12.5
+			\item static\_cast\textless double\textgreater(25/2) = 12.0
+		\end{enumerate}
+	
+		\item Problem 1, Section 1
+		\begin{enumerate}
+			\item 
+			\begin{lstlisting}
+			#include <iostream>
+			#include <stdlib.h>
+			
+			using namespace std;
+			
+			int main()
+			{
+				int w, l, Area;
+				w = 15;
+				l = 5;
+				
+				Area = l*w;
+				cout << "The area is" << "Area" //COMPILER ERROR: "Area" refers to a string, should be Area, the intialized variable of type int.
+				
+				system("pause");
+				return 0;
+			}
+			
+			\end{lstlisting}
+			
+			\item
+			\begin{lstlisting}
+			#include <iostream>
+			#include <stdlib.h>
+			
+			using namespace std;
+			
+			int main()
+			{
+				int w = 15, l = 5;
+				
+				Area = l*w; // COMPILER ERROR: The variable "Area" has not been initialized.
+				cout << "The area is" << area; //COMPILER ERROR: variable "area" has not been initialized, should refer to variable "Area".
+				
+				system("pause");
+				return 0;
+			}
+			\end{lstlisting}
+			
+			\item
+			\begin{lstlisting}
+			#include <iostream>
+			#include <stdlib.h>
+			
+			using namespace std;
+			
+			int main()
+			{
+				double w, l, Area;
+				w = 15.5; 
+				l = 5;
+				
+				l*w = Area; // COMPILER ERROR: "Area" should be on the LHS and "l*w" should be on the RHS. 
+				cout << "The area is" Area; // COMPILER ERROR: There should be a "<<" before "Area"
+				
+				system("pause");
+				return 0;
+			}
+			\end{lstlisting}
+			
+			\item	
+			\begin{lstlisting}
+			#include <iostream>
+			#include <stdlib.h>
+			
+			using namespace std;
+			
+			int main()
+			{
+				int w, l, Area; // should change "int" to "double" for greater accuracy, since w = 15.5
+				w = 15.5; 
+				l = 5;
+				cout << The area is << w*l; // COMPILER ERROR: need quotation marks around "The area is"
+				system("pause");
+				return 0;
+			}
+			\end{lstlisting}
+			
+			
+		\end{enumerate}
+	
+	\item Problem 2, Section 1
+		\begin{lstlisting}
+		int a,b,c;
+		a = 32;
+		b = 10;
+		c = a-b; // c = 32-10 = 22
+		b = c; // b = 22
+		a = a+b; // a = 32 + 22 = 54
+		-c; // this line doesn't do anything
+		a += 2;  // 54 + 2 = 56
+		\end{lstlisting}
+		a = 56\\
+		b = 22\\
+		c = 22\\
+\end{enumerate}
+
+
+
+
+\end{document}
